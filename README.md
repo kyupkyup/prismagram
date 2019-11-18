@@ -5,6 +5,7 @@ express + prisma + react and reactNative
 
 ##User Stories
 
+- [ ] login / logout
 - [ ] see the feed
 - [ ] Like / unlike a photo
 - [ ] Comment on a photo
@@ -14,7 +15,6 @@ express + prisma + react and reactNative
 - [ ] Follow / unfollow user
 - [ ] see the full photo
 - [ ] edit my profile 
-- [ ] create account
-- [ ] login / logout
+- [X] create account
 - [ ] upload photo 
 - [ ] edit the photo / delete photo 
