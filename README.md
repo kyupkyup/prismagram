@@ -6,7 +6,7 @@ express + prisma + react and reactNative
 ##User Stories
 
 - [X] create account
-- [ ] request secret
+- [X] request secret
 - [ ] confirm secret(login)
 - [ ] login / logout
 - [ ] see the feed
