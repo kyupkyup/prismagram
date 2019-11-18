@@ -5,6 +5,9 @@ express + prisma + react and reactNative
 
 ##User Stories
 
+- [X] create account
+- [ ] request secret
+- [ ] confirm secret(login)
 - [ ] login / logout
 - [ ] see the feed
 - [ ] Like / unlike a photo
@@ -15,6 +18,5 @@ express + prisma + react and reactNative
 - [ ] Follow / unfollow user
 - [ ] see the full photo
 - [ ] edit my profile 
-- [X] create account
 - [ ] upload photo 
 - [ ] edit the photo / delete photo 
