@@ -9,9 +9,9 @@ express + prisma + react and reactNative
 - [X] request secret
 - [X] confirm secret(login)
 - [X] Like / unlike a photo
+- [X] Comment on a photo
 - [ ] login / logout
 - [ ] see the feed
-- [ ] Comment on a photo
 - [ ] Search by User
 - [ ] Search by location
 - [ ] See your profile
