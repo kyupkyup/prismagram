@@ -17,7 +17,7 @@ express + prisma + react and reactNative
 - [X] Follow User
 - [X] unfollow user
 - [X] see my profile
+- [X] see the full photo
 - [ ] see the feed
-- [ ] see the full photo
 - [ ] upload photo 
 - [ ] edit the photo / delete photo 
