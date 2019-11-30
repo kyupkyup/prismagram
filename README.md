@@ -10,11 +10,10 @@ express + prisma + react and reactNative
 - [X] confirm secret(login)
 - [X] Like / unlike a photo
 - [X] Comment on a photo
-- [ ] login / logout
+- [X] login / logout
 - [ ] see the feed
-- [ ] Search by User
-- [ ] Search by location
-- [ ] See your profile
+- [X] Search by location
+- [X] See your profile
 - [ ] Follow / unfollow user
 - [ ] see the full photo
 - [ ] edit my profile 
