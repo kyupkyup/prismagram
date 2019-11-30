@@ -12,7 +12,7 @@ import {sendSecretMail} from "./utils";
 import passport from "passport";
 import "./passport";
 import { authenticateJwt } from "./passport";
-
+import {isAuthenticated} from "./middleware";
 // sendSecretMail("rudduqdl1@gmail.com", 123);
 
 const PORT = process.env.PORT || 4000;
@@ -24,7 +24,7 @@ const server = new GraphQLServer(
         schema,
         context: (
             {
-                request 
+                request , isAuthenticated
             }
         ) => ({request})
     }

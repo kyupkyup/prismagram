@@ -11,12 +11,12 @@ express + prisma + react and reactNative
 - [X] Like / unlike a photo
 - [X] Comment on a photo
 - [X] login / logout
-- [ ] see the feed
+- [X] edit my profile 
 - [X] Search by location
 - [X] See your profile
 - [X] Follow User
 - [X]  unfollow user
+- [ ] see the feed
 - [ ] see the full photo
-- [ ] edit my profile 
 - [ ] upload photo 
 - [ ] edit the photo / delete photo 
