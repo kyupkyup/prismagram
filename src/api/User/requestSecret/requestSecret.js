@@ -9,7 +9,9 @@ export default {
             console.log(loginSecret);
 
             try{
+                console.log(sendSecretMail(email, loginSecret));
                 await sendSecretMail(email, loginSecret);
+                console.log(email);
                 await prisma.updateUser({
                     data:{loginSecret}, where:{email}
                 });

@@ -23,7 +23,14 @@ export const sendMail = (email) =>{
     };
     const client  = nodemailer.createTransport(sgTransport(options));
 
-    return client.sendMail(email);
+    return client.sendMail(email, function(err, info){
+        if(err){
+            console.log(err)
+        }
+        else{
+            console.log('message sent:'+ info.response);
+        }
+    });
 };
 
 export const sendSecretMail = (address, secret) => {
