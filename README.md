@@ -20,7 +20,7 @@ express + prisma + react and reactNative
 - [X] see the full photo
 - [ ] see the feed
 - [ ] upload photo 
-- [ ] edit the photo / delete photo 
+- [△] edit the photo / delete photo 
 - [ ] send private DM
 - [ ] receive DM
 - [ ] See DM Room 

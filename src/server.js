@@ -8,12 +8,10 @@ import {
 import logger from "morgan";
 import schema  from "./schema";
 import utils from "./utils";
-import {sendSecretMail} from "./utils";
-import passport from "passport";
+import passport from "./passport";
 import "./passport";
 import { authenticateJwt } from "./passport";
 import {isAuthenticated} from "./middleware";
-// sendSecretMail("rudduqdl1@gmail.com", 123);
 
 const PORT = process.env.PORT || 4000;
 
@@ -22,11 +20,11 @@ const PORT = process.env.PORT || 4000;
 const server = new GraphQLServer(
     {
         schema,
-        context: (
+        context: ({request}) => (
             {
                 request , isAuthenticated
             }
-        ) => ({request})
+        )
     }
 );
 

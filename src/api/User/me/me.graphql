@@ -1,4 +1,4 @@
 
 type Query{
-    me:UserProfile!
+    me:User!
 }

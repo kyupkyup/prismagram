@@ -1,73 +1,63 @@
+
 type User {
   id: ID! 
+  avatar: String
   userName: String! 
-  email: String! 
+  email: String!
   firstName: String 
   lastName: String
-  fullName:String
-  amIFollowing:Boolean!
-  itsMe: Boolean!
+  fullName: String
   bio: String
+  followings: [User!]! 
+  followers: [User!]! 
   posts: [Post!]!
   likes: [Like!]!
-  comments: [Comment!]!
-  followers: [User!]! 
-  followings: [User!]! 
+  comments: [Comment!]! 
   rooms: [Room!]!
   loginSecret: String
 }
 
-type Post{
+type Post {
   id: ID! 
-  files: [File!]!
+  files: [File!]! 
   location: String!
-  creator:[User!]!
-  caption: String!
-  likes: [Like!]!
-  comments: [Comment!]!
+  user: [User!]! 
+  caption: String! 
+  likes: [Like!]! 
+  comments: [Comment!]! 
   isLiked: Boolean!
 }
 
-type Like{
-  id: ID! 
-  user: User!
-  post: Post!
+type Like {
+  id: ID!  
+  user: User 
+  post: Post
 }
 
-type Comment{
-  id: ID!
+type Comment {
+  id: ID! 
   text: String!
-  user: User!
-  post: Post!
+  user: User
+  post: Post
 }
 
-type File{
+type File {
   id: ID! 
-  url : String!
-  post : Post!
+  url: String!
+  post: Post 
 }
 
-type Room{
-  id: ID!
+type Room {
+  id: ID! 
   participants: [User!]!
-  messages:[Message!]!
+  messages: [Message!]!
 }
 
-type Message{
+type Message {
   id: ID! 
   text: String!
-  from: User!
-  to: User!
-  room:Room!
+  from: User! 
+  to: User! 
+  room: Room!
 }
 
-type UserProfile{
-  user:User!
-  posts: [Post!]!
-}
-
-type FullPost{
-  post: Post!
-  comments: [Comment!]!
-  likeCount: Int!
-}

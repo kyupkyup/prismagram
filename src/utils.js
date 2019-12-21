@@ -40,7 +40,8 @@ export const sendSecretMail = (address, secret) => {
         subject: "Login Secret for Prismagram ",
         html: `Hello, Your login secret is ${secret}. <br/> Copy and paste on the app/website to login`
     }
-    return sendMail(email);
+    // return sendMail(email);
+    return null;
 }
 
 export const generateToken = (id) => jwt.sign({id}, process.env.JWT_SECRET);

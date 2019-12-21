@@ -4,6 +4,7 @@
        email:String, 
        firstName:String, 
        lastName:String, 
-       bio:String
+       bio:String,
+       avatar: String
        ): Boolean!
  }

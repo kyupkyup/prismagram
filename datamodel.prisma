@@ -1,58 +1,62 @@
 type User {
   id: ID! @id
+  avatar: String
   userName: String! @unique
-  email : String! @unique
-  firstName: String @default(value:"")
+  email: String! @unique
+  firstName: String @default(value: "")
   lastName: String
-  bio: String
-  posts: [Post!]!
-  likes: [Like!]!
-  comments: [Comment!]!
-  followers: [User!]! @relation(name:"FollowRelation")
-  followings: [User!]! @relation(name:"FollowRelation")
+  fullName: String  
+  bio: String 
+  followings: [User!]! @relation(name: "FollowRelation")
+  followers: [User!]! @relation(name: "FollowRelation")
+  posts: [Post!]! @relation(name: "PostsOfUser", onDelete: CASCADE)
+  likes: [Like!]! @relation(name: "LikesOfUser", onDelete: CASCADE)
+  comments: [Comment!]! @relation(name: "CommentsOfUser", onDelete: CASCADE)
   rooms: [Room!]!
   loginSecret: String
 }
 
-type Post{
+type Post {
   id: ID! @id
-  files: [File!]!
+  files: [File!]! @relation(name: "FilesOfPost", onDelete: CASCADE)
   location: String!
-  creator:[User!]!
-  caption: String!
-  likes: [Like!]!
-  comments: [Comment!]!
+  user: [User!]! @relation(name: "PostsOfUser", onDelete: CASCADE)
+  caption: String! 
+  likes: [Like!]! @relation(name: "LikeOfPost", onDelete: CASCADE)
+  comments: [Comment!]! 
+  isLiked: Boolean!
 }
 
-type Like{
-  id: ID! @id
-  user: User!
-  post: Post!
+type Like {
+  id: ID!  @id
+  user: User @relation(name: "LikesOfUser")
+  post: Post @relation(name: "LikeOfPost")
 }
 
-type Comment{
+type Comment {
   id: ID! @id
   text: String!
-  user: User!
-  post: Post!
+  user: User @relation(name: "CommentsOfUser")
+  post: Post 
 }
 
-type File{
-  id: ID! @id
-  url : String!
-  post : Post!
+type File {
+  id: ID!  @id
+  url: String!
+  post: Post @relation(name: "FilesOfPost")
 }
 
-type Room{
+type Room {
   id: ID! @id
   participants: [User!]!
-  messages:[Message!]!
+  messages: [Message!]!
 }
 
-type Message{
-  id: ID! @id
+type Message {
+  id: ID! @id 
   text: String!
-  from: User!@relation(name:"From")
-  to: User!@relation(name:"To")
-  room:Room!
+  from: User! @relation(name: "From")
+  to: User! @relation(name: "To")
+  room: Room!
 }
+
