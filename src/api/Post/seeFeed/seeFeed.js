@@ -7,16 +7,20 @@ export default{
             isAuthenticated(request);
 
             const {user} = request;
-            const following = await prisma.user({id: user.id}).following();
-            console.log(following);
-            return prisma.posts({
+            const following = await prisma.user({id: user.id}).followings();
+            console.log(following.length + "팔로워");
+
+            const post = await prisma.posts({
                 where:{
-                    user:{
+                    user_every :{
                         id_in: [...following.map(user => user.id) , user.id]
                     }
                 },
-                orderBy: 'createAT_DESC'
-            });
+                orderBy: "createdAt_DESC"
+                        });
+            console.log(post);
+            return post;
+
         }
     }
 }
