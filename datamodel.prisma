@@ -1,6 +1,9 @@
 type User {
   id: ID! @id
   avatar: String
+    @default(
+      value: "https://scontent-frt3-2.cdninstagram.com/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=scontent-frt3-2.cdninstagram.com&_nc_ohc=bwxLFUwd9DYAX_hZM1b&oh=892d26eba5c4a2319da3a2104476d461&oe=5E90E8F1"
+    )
   userName: String! @unique
   email: String! @unique
   firstName: String @default(value: "")
@@ -9,32 +12,32 @@ type User {
   bio: String 
   followings: [User!]! @relation(name: "FollowRelation")
   followers: [User!]! @relation(name: "FollowRelation")
-  posts: [Post!]! @relation(name: "PostsOfUser", onDelete: CASCADE)
+  posts: [Post!]! @relation(name: "PostsOfAuthor", onDelete: CASCADE)
   likes: [Like!]! @relation(name: "LikesOfUser", onDelete: CASCADE)
   comments: [Comment!]! @relation(name: "CommentsOfUser", onDelete: CASCADE)
   rooms: [Room!]!
   loginSecret: String
-  createdAt: DateTime @createdAt
+  createdAt: DateTime! @createdAt
 }
 
 type Post {
   id: ID! @id
   files: [File!]! @relation(name: "FilesOfPost", onDelete: CASCADE)
   location: String!
-  user: [User!]! @relation(name: "PostsOfUser", onDelete: CASCADE)
+  author: [User!]! @relation(name: "PostsOfAuthor", onDelete: CASCADE)
   caption: String! 
   likes: [Like!] @relation(name: "LikeOfPost", onDelete: CASCADE)
-  comments: [Comment!] 
+  comments: [Comment!] @relation(name: "CommentOfPost", onDelete: CASCADE)
   isLiked: Boolean!
-  createdAt: DateTime @createdAt
+  createdAt: DateTime! @createdAt
 
 }
 
 type Like {
-  id: ID!  @id
+  id: ID! @id
   user: User @relation(name: "LikesOfUser")
   post: Post @relation(name: "LikeOfPost")
-  createdAt: DateTime @createdAt
+  createdAt: DateTime! @createdAt
 
 }
 
@@ -42,8 +45,8 @@ type Comment {
   id: ID! @id
   text: String!
   user: User @relation(name: "CommentsOfUser")
-  post: Post 
-  createdAt: DateTime @createdAt
+  post: Post @relation(name: "CommentOfPost")
+  createdAt: DateTime! @createdAt
   
 }
 
@@ -51,14 +54,14 @@ type File {
   id: ID!  @id
   url: String!
   post: Post @relation(name: "FilesOfPost")
-  createdAt: DateTime @createdAt
+  createdAt: DateTime! @createdAt
 }
 
 type Room {
   id: ID! @id
   participants: [User!]!
   messages: [Message!]!
-  createdAt: DateTime @createdAt
+  createdAt: DateTime! @createdAt
 }
 
 type Message {
@@ -67,6 +70,6 @@ type Message {
   from: User! @relation(name: "From")
   to: User! @relation(name: "To")
   room: Room!
-  createdAt: DateTime @createdAt
+  createdAt: DateTime! @createdAt
 }
 

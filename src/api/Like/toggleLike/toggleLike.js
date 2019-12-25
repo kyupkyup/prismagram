@@ -24,9 +24,7 @@ export default {
                 };
                 try{
                     const existingLike = await prisma.$exists.like(
-                        {
-                            filterOptions
-                        }
+                            filterOptions  
                     );
                     if(existingLike){
                         //TODO delete like

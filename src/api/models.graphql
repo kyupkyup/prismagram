@@ -8,14 +8,20 @@ type User {
   lastName: String
   fullName: String
   bio: String
+  isFollowing: Boolean!
+  isSelf: Boolean!  
   followings: [User!]! 
+  followingCount: Int!
   followers: [User!]! 
+  followersCount: Int!
   posts: [Post!]!
+  postsCount: Int!
   likes: [Like!]!
   comments: [Comment!]! 
   rooms: [Room!]!
   loginSecret: String
-  createdAt: String
+  createdAt: String!
+  updatedAt: String
 
 }
 
@@ -23,19 +29,21 @@ type Post {
   id: ID! 
   files: [File!]!
   location: String!
-  user: [User!]!
+  author: [User!]!
   caption: String! 
   likes: [Like!] 
   comments: [Comment!] 
   isLiked: Boolean!
-  createdAt: String
+  createdAt: String!
+  likeCount: Int!
+  commentCount: Int!
 }
 
 type Like {
   id: ID!  
   user: User 
   post: Post
-  createdAt: String
+  createdAt: String!
 
 }
 
@@ -44,7 +52,7 @@ type Comment {
   text: String!
   user: User
   post: Post
-  createdAt: String
+  createdAt: String!
 
 }
 
@@ -52,7 +60,7 @@ type File {
   id: ID! 
   url: String!
   post: Post
-  createdAt: String
+  createdAt: String!  
 
 }
 
@@ -60,7 +68,7 @@ type Room {
   id: ID! 
   participants: [User!]!
   messages: [Message!]!
-   createdAt: String
+   createdAt: String!
 }
 
 type Message {
@@ -69,6 +77,6 @@ type Message {
   from: User! 
   to: User! 
   room: Room!
-   createdAt: String
+  createdAt: String!
 }
 
