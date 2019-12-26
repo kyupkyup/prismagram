@@ -12,17 +12,17 @@ export default {
     rooms: ({ id }) => prisma.user({ id }).rooms(),
     postsCount: ({ id }) =>
       prisma
-        .postsConnection({ where: { user: { id } } })
+        .postsConnection({ where: { author_some : { id } } })
         .aggregate()
         .count(),
     followingCount: ({ id }) =>
       prisma
-        .usersConnection({ where: { followers_some: { id } } })
+        .usersConnection({ where: { followings_some: { id } } })
         .aggregate()
         .count(),
     followersCount: ({ id }) =>
       prisma
-        .usersConnection({ where: { following_none: { id } } })
+        .usersConnection({ where: { followers_some : { id } } })
         .aggregate()
         .count(),
     fullName: parent => `${parent.firstName} ${parent.lastName}`,
@@ -36,7 +36,7 @@ export default {
               id: user.id
             },
             {
-              following_some: {
+              followings_some: {
                 id: parentId
               }
             }
