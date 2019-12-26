@@ -18,10 +18,10 @@ express + prisma + react and reactNative
 - [X] unfollow user
 - [X] see my profile
 - [X] see the full photo
-- [ ] see the feed
-- [ ] upload photo 
-- [△] edit the photo / delete photo 
-- [ ] send private DM
-- [ ] receive DM
-- [ ] See DM Room 
+- [X] see the feed
+- [X] upload photo 
+- [X] edit the photo / delete photo 
+- [X] send private DM
+- [X] receive DM
+- [X] See DM Room 
 
